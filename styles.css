@@ -14,8 +14,13 @@ body{
         "header header header header"
         ". subheading subheading ."
         ". content content ."
-        ". pagetitle menu .";
+        ". footer menu .";
     gap: 0 1.5em;
+
+    height: 100vh;
+    width: 100vw;
+    padding: 1.5em;
+    margin: 0;
 }
 
 
@@ -49,7 +54,7 @@ main{
 }
 
 .site-title{
-    grid-area: pagetitle;
+    grid-area: footer;
 
     justify-self: center;
     align-self: center;
@@ -84,7 +89,24 @@ nav{
     font-size: 1.5em;
 }
 
+.socials-container{
+    grid-area: footer;
+    align-self: center;
+    justify-self: center;
+    margin-top: 1.4em;
 
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+
+    display: none;
+
+}
+
+.socials-img{
+    width: 2em;
+}
 
 .logo-img{
     width: 80vw;
@@ -134,20 +156,34 @@ nav ul{
 
 @media (min-width: 768px){
     body{
-        grid-template: 15vh 72vh 5vh/ 0px 12em auto 0px; 
+
+        grid-template: max-content max-content minmax(500px, 1fr) 9vh/ 0px max-content 1fr max-content 0px; 
+
+        /* grid-template: 10vh 5vh 72vh 8vh/ 0px 10em auto 0px;  */
         grid-template-areas: 
-            "header header header header"
-            ". sidebar content ."
-            ". .  subheading .";
+            "header header header socials socials"
+            " . . . . . "
+            ". sidebar content content ."
+            ". . subheading subheading .";
 
             /* ". sidebar leftbracket content rightbracket ."; */
-        gap: 2em;
+        gap: 0 2em;
     }
 
     header{
         justify-self: left;
-        align-self: center;
-        margin-left: 4em;
+        /* align-self: center; */
+        align-self: end;
+        margin-left: 2em;
+        background-color: blue;
+        /* object-fit: contain; */
+    }
+    .logo-img{
+        /* object-fit: cover; */
+        /* width: 65vw; */
+        width: 100%;
+        grid-area: header;
+
     }
 
     .subheading{
@@ -158,6 +194,20 @@ nav ul{
 
     .site-title{
         display: none; 
+    }
+
+    .logo-img, 
+    .socials-container{
+        align-self: baseline;
+    }
+    .socials-container{
+        margin-left: -1em;
+        /* display: none; */
+        display: flex;
+        grid-area: socials;
+        justify-self: end;
+        margin-top: 0;
+        padding: 1em 0;
     }
     .hamburger-menu{
         display: none;
@@ -189,8 +239,8 @@ nav ul{
     .about{
         grid-row: 7;
     }
-/* 
-    .current-page{
+
+    /* .current-page{
         grid-row: 4;
     } */
 
@@ -241,3 +291,5 @@ nav ul{
         
     }
 }
+
+

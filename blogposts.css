@@ -1,0 +1,133 @@
+
+*, *::after, *::before{
+    box-sizing: border-box;
+}
+html{
+    background-color: #1c1c1c;
+    font-family: "Fredoka", sans-serif;
+    height: 100%;
+    width: 100%;
+    padding: 0; 
+    margin: 0;
+}
+
+.blogposts{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+.blog-post-list, 
+.current-blog-post{
+    min-width: 25em;
+    /* max-width: 40em; */
+    max-width: 30em;
+
+
+}
+
+.blog-post-card{
+    background-color: #af7200;
+    /* color: white; */
+    display: grid;
+    grid-template: 2em 6em 2em / minmax(7.5em, 10em) minmax(11em, 1fr) 0px;
+    grid-template-areas: 
+        "photo title ."
+        "photo text ."
+        "photo readmore readmore";
+
+    gap: 0.5em 1em;
+
+    margin: 0 0 1.5em 0;
+    /* min-width: 20em;
+    max-width: 40em; */
+    /* width: 30em; */
+    max-height: 11em;
+}
+
+.blog-post-photo{
+    grid-area: photo;
+    /* width: 100px; */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.blog-post-title{
+    grid-area: title;
+    font-size: 1.25rem;
+}
+
+.blog-post-date{
+    grid-area: photo;
+    justify-self: start;
+    align-self: start;
+
+    background-color:#1c1c1c;
+    color: white;
+    padding: 0.5em 1em;
+    font-size: 0.825rem;
+    font-weight: 400;
+    margin-top: 1em;
+}
+
+.blog-post-preview{
+    grid-area: text; 
+    overflow: hidden; 
+    font-size: 0.91rem; 
+    /* this font-size hides remnants from the next line - but should do something in js to reduce the text instead probably?*/
+
+}
+
+.read-more-btn{
+    grid-area: readmore;
+    justify-self: end;
+    align-self: end;
+
+    border: none; 
+    background-color: #1c1c1c;
+    color: white;
+    font-weight: bold;
+    padding: 0.75em 3em;
+    margin-bottom: 0.5em;
+    width: 150px;
+    /* min-width: 110px; */
+}
+
+
+
+/* Current blog post */
+.current-blog-post{
+    background-color: #af7200;
+    /* color: #efefef; */
+
+    padding: 0.5em 1em;
+}
+
+.current-blog-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0;
+}
+
+.current-blog-post h2,
+.current-blog-post h4{
+    margin-bottom: 0.2em;
+}
+/* .current-blog-post h2{
+    margin-top: 0.2em;
+}
+
+.current-blog-post h4{
+    font-size: 0.9em;
+    margin-bottom: 0;
+    text-align: right;
+} */
+
+.current-blog-post img{
+    width: 100%;
+    padding: 0.5em 2em;
+}
